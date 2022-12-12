@@ -1,9 +1,9 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import { AddPostForm } from "../AddPostForm/AddPostForm";
 
@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Navbar />
       <div className="page">
-        <Switch>
+        <Routes>
           <Route
             exact
             path="/"
@@ -30,8 +30,8 @@ function App() {
           />
           <Route exact path="/posts/:postId" component={SinglePostPage} />
           <Route exact path="/editPost/:postId" component={EditPostForm} />
-          <Redirect to="/" />
-        </Switch>
+          <Navigate to="/" />
+        </Routes>
       </div>
     </Router>
   );

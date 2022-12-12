@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   postUpdated,
@@ -14,7 +14,7 @@ export const EditPostForm = ({ match }) => {
   const [description, setDescription] = useState(post.description);
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
 
   const onTitleChanged = (e) => setNameRU(e.target.value);
   const onContentChanged = (e) => setDescription(e.target.value);
