@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { selectPostById } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
 
-export const SinglePostPage = ({ match }) => {
-  const { postId } = match.params;
+export const SinglePostPage = () => {
+
+  const { postId } = useParams();
   const post = useSelector((state) => selectPostById(state, postId));
 
   if (!post) {
