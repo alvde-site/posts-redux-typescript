@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  // Navigate,
 } from "react-router-dom";
 import { AddPostForm } from "../AddPostForm/AddPostForm";
 
@@ -30,7 +30,7 @@ function App() {
           />
           <Route exact path="/posts/:postId" component={SinglePostPage} />
           <Route exact path="/editPost/:postId" component={EditPostForm} />
-          <Navigate to="/" />
+          {/* <Route path="/auth" element={this.state.token ? <Navigate to="/competition" /> : AuthPage} */}
         </Routes>
       </div>
     </Router>
