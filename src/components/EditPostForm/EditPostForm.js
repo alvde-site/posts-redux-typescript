@@ -14,7 +14,7 @@ export const EditPostForm = () => {
   const [description, setDescription] = useState(post.description);
 
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const onTitleChanged = (e) => setNameRU(e.target.value);
   const onContentChanged = (e) => setDescription(e.target.value);
@@ -22,7 +22,7 @@ export const EditPostForm = () => {
   const onSavePostClick = () => {
     if (nameRU && description) {
       dispatch(postUpdated({ id: postId, nameRU, description }));
-      history.push(`/posts/${postId}`);
+      navigate(`/posts/${postId}`);
     }
   };
 
