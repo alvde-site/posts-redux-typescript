@@ -30,11 +30,15 @@ export const PostsList = () => {
 
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
+
+  let oneRender = 1;
+
   useEffect(() => {
-    if (postStatus === "idle") {
+    if (postStatus === "idle" && oneRender === 1) {
+      oneRender++;
       dispatch(fetchPosts());
     }
-  }, [postStatus, dispatch]);
+  }, [postStatus, dispatch, oneRender]);
 
   let content;
 
