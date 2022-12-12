@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   postUpdated,
   selectPostById,
 } from "../../services/reducers/postsSlice";
 
-export const EditPostForm = ({ match }) => {
-  const { postId } = match.params;
+export const EditPostForm = () => {
+  const { postId } = useParams();
   const post = useSelector((state) => selectPostById(state, postId));
   const [nameRU, setNameRU] = useState(post.nameRU);
   const [description, setDescription] = useState(post.description);
