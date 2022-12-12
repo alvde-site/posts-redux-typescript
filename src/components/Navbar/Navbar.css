@@ -1,0 +1,27 @@
+.navbar__title {
+  color: white;
+}
+
+.navbar__content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #aaa;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: rgb(25, 23, 23);
+}
+
+.navbar__link:hover {
+  opacity: 0.5;
+}
+
+
+
+.navbar__links {
+  display: flex;
+}

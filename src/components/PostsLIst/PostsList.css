@@ -1,0 +1,32 @@
+.posts {
+  padding: 20px;
+}
+
+.posts__title {
+  text-align: center;
+}
+
+.posts__excerpt {
+  padding: 0.25rem 0.25rem;
+  border: 1px solid rgb(177, 174, 174);
+  border-radius: 7px;
+  margin-top: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.posts__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.posts__morelink {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.posts__morelink:hover {
+  opacity: 0.5;
+}

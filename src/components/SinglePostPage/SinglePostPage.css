@@ -1,0 +1,20 @@
+.post {
+    padding: 20px;
+}
+
+.post__links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__link {
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    color: red;
+}
+
+.post__link:hover {
+    opacity: 0.5;
+}

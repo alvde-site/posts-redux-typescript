@@ -1,0 +1,11 @@
+.editpost {
+    padding: 20px;
+}
+
+.editpost__title {
+    text-align: center;
+}
+
+.postform__button:hover {
+    opacity: 0.5;
+}
