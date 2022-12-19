@@ -1,10 +1,18 @@
-import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  nanoid,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { initialReactions } from "../../utils/constants";
+import { PostsState } from "../../utils/interfaces";
+import { FormattedPost, Post } from "../../utils/types";
+import { RootState } from "../store";
 
-const initialState = {
+const initialState: PostsState = {
   posts: [],
   status: "idle",
-  error: null,
+  error: undefined,
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
@@ -15,7 +23,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
   });
-  return response;
+  return response as Post[];
 });
 
 const postsSlice = createSlice({
@@ -30,7 +38,7 @@ const postsSlice = createSlice({
       }
     },
     postAdded: {
-      reducer(state, action) {
+      reducer(state, action: PayloadAction<FormattedPost>) {
         state.posts.push(action.payload);
       },
       prepare(description, nameRU, userId) {
@@ -49,7 +57,9 @@ const postsSlice = createSlice({
     },
     postUpdated(state, action) {
       const { id, nameRU, description } = action.payload;
-      const existingPost = state.posts.find((post) => post.id.toString() === id.toString());
+      const existingPost = state.posts.find(
+        (post) => post.id.toString() === id.toString()
+      );
       if (existingPost) {
         existingPost.nameRU = nameRU;
         existingPost.description = description;
@@ -63,7 +73,9 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
-        const formattedPost = action.payload.map(post => {return {...post, reactions: initialReactions}} )
+        const formattedPost = action.payload.map((post) => {
+          return { ...post, reactions: initialReactions };
+        });
         state.posts = state.posts.concat(formattedPost);
       })
       .addCase(fetchPosts.rejected, (state, action) => {
@@ -77,7 +89,7 @@ export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
 
-export const selectAllPosts = (state) => state.posts.posts;
+export const selectAllPosts = (state: RootState) => state.posts.posts;
 
-export const selectPostById = (state, postId) =>
+export const selectPostById = (state: RootState, postId: string) =>
   state.posts.posts.find((post) => post.id.toString() === postId.toString());
