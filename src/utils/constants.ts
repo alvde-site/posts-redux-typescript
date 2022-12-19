@@ -1,5 +1,4 @@
-// for translatedTime.js
-
+// start for translatedTime.js
 export const LESS = "less";
 export const LESSTHANMINUTE = "less than a minute";
 export const LESSTHANMINUTERU = "Меньше одной минуты";
@@ -17,6 +16,8 @@ export const MINUTERU = "минуту";
 export const ALMOST_TWO_YEARS = "almost 2 years";
 export const ABOUT_TWO_YEARS = "about 2 years";
 export const ALMOST_TWO_YEARS_RU = "около 2 лет";
+// end for translatedTime.js
+
 export const initialReactions = {
     thumbsUp: 0,
     thumbsDown: 0,

@@ -18,7 +18,7 @@ import {
   ABOUT_TWO_YEARS
 } from "./constants";
 
-export const translatedTime = (time) => {
+export const translatedTime = (time:string) => {
   let res;
   if (time.includes(LESS)) {
     res = time.replace(LESSTHANMINUTE, LESSTHANMINUTERU);
