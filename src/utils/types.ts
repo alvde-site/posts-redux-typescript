@@ -21,3 +21,12 @@ export type Post = {
   id: string;
   [index: string]: any;
 };
+
+export type TFakeApiHeaders = {
+  "Content-Type": string;
+};
+
+export type TFakeApi = {
+  baseUrl: string;
+  headers: TFakeApiHeaders;
+};
