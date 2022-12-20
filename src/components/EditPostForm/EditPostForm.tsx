@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { useNavigate, useParams } from "react-router-dom";
 
 import {
@@ -9,15 +9,15 @@ import {
 
 export const EditPostForm = () => {
   const { postId } = useParams();
-  const post = useSelector((state) => selectPostById(state, postId));
-  const [nameRU, setNameRU] = useState(post.nameRU);
-  const [description, setDescription] = useState(post.description);
+  const post = useAppSelector((state) => selectPostById(state, postId!));
+  const [nameRU, setNameRU] = useState(post!.nameRU);
+  const [description, setDescription] = useState(post!.description);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onTitleChanged = (e) => setNameRU(e.target.value);
-  const onContentChanged = (e) => setDescription(e.target.value);
+  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setNameRU(e.target.value);
+  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value);
 
   const onSavePostClick = () => {
     if (nameRU && description) {
