@@ -6,7 +6,7 @@ import {
 } from "@reduxjs/toolkit";
 import { initialReactions } from "../../utils/constants";
 import { PostsState } from "../../utils/interfaces";
-import { FormattedPost, Post } from "../../utils/types";
+import { FormattedPost, TPost } from "../../utils/types";
 import { RootState } from "../store";
 
 const initialState: PostsState = {
@@ -23,7 +23,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
   });
-  return response as Post[];
+  return response as TPost[];
 });
 
 const postsSlice = createSlice({

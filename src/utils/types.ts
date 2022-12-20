@@ -17,7 +17,7 @@ export type FormattedPost = {
   reactions: InitialReactions;
 };
 
-export type Post = {
+export type TPost = {
   id: string;
   [index: string]: any;
 };
@@ -30,3 +30,9 @@ export type TFakeApi = {
   baseUrl: string;
   headers: TFakeApiHeaders;
 };
+
+export type TAuthorPostTime = {
+  userId: string;
+  timestamp: string;
+  dateTitle: string;
+}

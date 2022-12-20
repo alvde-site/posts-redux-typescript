@@ -1,7 +1,7 @@
-import { Post } from "./types";
+import { TPost } from "./types";
 
 export interface PostsState {
-  posts: Post[];
+  posts: TPost[];
   status: string;
   error: string | undefined;
 }
