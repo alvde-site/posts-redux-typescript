@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+// import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
 export const AddPostForm = () => {
@@ -8,9 +8,9 @@ export const AddPostForm = () => {
   const [nameRU, setNameRU] = useState("");
   const [userId, setUserId] = useState("");
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const users = useSelector(state => state.users);
+  const users = useAppSelector(state => state.users);
 
   const onSavePostClick = () => {
     if (description && nameRU && userId) {
@@ -22,9 +22,9 @@ export const AddPostForm = () => {
     setUserId("");
   };
 
-  const onTitleChanged = (e) => setNameRU(e.target.value);
-  const onContentChanged = (e) => setDescription(e.target.value);
-  const onAuthorChanged = (e) => setUserId(e.target.value);
+  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setNameRU(e.target.value);
+  const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value);
+  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value); 
 
   const canSave = Boolean(description) && Boolean(nameRU) && Boolean(userId);
 
