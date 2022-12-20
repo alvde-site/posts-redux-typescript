@@ -19,7 +19,6 @@ function App() {
       <div className="page">
         <Routes>
           <Route
-            exact
             path="/"
             element={
               <React.Fragment>
@@ -28,8 +27,8 @@ function App() {
               </React.Fragment>
             }
           />
-          <Route exact path="/posts/:postId" element={<SinglePostPage />} />
-          <Route exact path="/editPost/:postId" element={<EditPostForm />} />
+          <Route path="/posts/:postId" element={<SinglePostPage />} />
+          <Route path="/editPost/:postId" element={<EditPostForm />} />
           {/* <Route path="/auth" element={this.state.token ? <Navigate to="/competition" /> : AuthPage} */}
         </Routes>
       </div>
