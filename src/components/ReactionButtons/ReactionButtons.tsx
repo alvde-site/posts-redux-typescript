@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../utils/hooks";
 
 import { reactionAdded } from "../../services/reducers/postsSlice";
+import { TPost } from "../../utils/types";
 
 const reactionEmoji = {
   thumbsUp: "👍",
@@ -11,8 +12,8 @@ const reactionEmoji = {
   eyes: "👀",
 };
 
-export const ReactonButtons = ({ post }) => {
-  const dispatch = useDispatch();
+export const ReactonButtons = ({ post }:{post: TPost}) => {
+  const dispatch = useAppDispatch();
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (

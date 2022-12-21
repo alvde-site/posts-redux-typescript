@@ -31,8 +31,8 @@ export type TFakeApi = {
   headers: TFakeApiHeaders;
 };
 
-export type TAuthorPostTime = {
-  userId: string;
+export type TAuthorPostTimeProps = {
+  userId?: string;
   timestamp: string;
   dateTitle: string;
 }
