@@ -35,4 +35,4 @@ export type TAuthorPostTimeProps = {
   userId?: string;
   timestamp: string;
   dateTitle: string;
-}
+};

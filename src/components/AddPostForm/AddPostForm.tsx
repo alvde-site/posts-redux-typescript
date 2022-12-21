@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
@@ -10,7 +9,7 @@ export const AddPostForm = () => {
 
   const dispatch = useAppDispatch();
 
-  const users = useAppSelector(state => state.users);
+  const users = useAppSelector((state) => state.users);
 
   const onSavePostClick = () => {
     if (description && nameRU && userId) {
@@ -22,17 +21,20 @@ export const AddPostForm = () => {
     setUserId("");
   };
 
-  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setNameRU(e.target.value);
-  const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value);
-  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value); 
+  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setNameRU(e.target.value);
+  const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setUserId(e.target.value);
+  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setDescription(e.target.value);
 
   const canSave = Boolean(description) && Boolean(nameRU) && Boolean(userId);
 
-  const usersOptions = users.map(user => (
+  const usersOptions = users.map((user) => (
     <option key={user.id} value={user.id}>
-        {user.name}
+      {user.name}
     </option>
-  ))
+  ));
 
   return (
     <section className="addpost">
@@ -51,8 +53,8 @@ export const AddPostForm = () => {
         />
         <label htmlFor="postAuthor">Автор отзыва:</label>
         <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
-            <option value=""></option>
-            {usersOptions}
+          <option value=""></option>
+          {usersOptions}
         </select>
         <label htmlFor="postContent" className="postform__item">
           Описание:

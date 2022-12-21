@@ -4,7 +4,6 @@ import { selectPostById } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
 
 export const SinglePostPage = () => {
-
   const { postId } = useParams();
   const post = useAppSelector((state) => selectPostById(state, postId!));
 
@@ -19,8 +18,11 @@ export const SinglePostPage = () => {
   return (
     <section>
       <article className="post">
-        <PostAuthor userId={post.user} timestamp={post.created_at}
-        dateTitle={post.dateTitle}/>
+        <PostAuthor
+          userId={post.user}
+          timestamp={post.created_at}
+          dateTitle={post.dateTitle}
+        />
         <h2>{post.nameRU}</h2>
         <p className="post__content">{post.description}</p>
         <div className="post__links">

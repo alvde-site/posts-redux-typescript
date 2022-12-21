@@ -16,8 +16,10 @@ export const EditPostForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setNameRU(e.target.value);
-  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value);
+  const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setNameRU(e.target.value);
+  const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setDescription(e.target.value);
 
   const onSavePostClick = () => {
     if (nameRU && description) {

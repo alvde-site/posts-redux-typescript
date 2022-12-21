@@ -12,12 +12,18 @@ const reactionEmoji = {
   eyes: "👀",
 };
 
-export const ReactonButtons = ({ post }:{post: TPost}) => {
+export const ReactonButtons = ({ post }: { post: TPost }) => {
   const dispatch = useAppDispatch();
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
-      <button key={name} type="button" onClick={() => dispatch(reactionAdded({postId: post.id, reaction: name}))}>
+      <button
+        key={name}
+        type="button"
+        onClick={() =>
+          dispatch(reactionAdded({ postId: post.id, reaction: name }))
+        }
+      >
         {emoji} {post.reactions[name]}
       </button>
     );

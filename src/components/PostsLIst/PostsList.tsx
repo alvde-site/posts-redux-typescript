@@ -7,7 +7,7 @@ import { ReactonButtons } from "../ReactionButtons/ReactionButtons";
 import { Spinner } from "../Spinner/Spinner";
 import { TPost } from "../../utils/types";
 
-const PostExcerpt = ({ post }:{ post: TPost}) => {
+const PostExcerpt = ({ post }: { post: TPost }) => {
   return (
     <article className="posts__excerpt" key={post.id}>
       <h3>{post.nameRU}</h3>
