@@ -1,4 +1,5 @@
 import React from "react";
+import stylesApp from "./App.module.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,11 +13,12 @@ import { PostsList } from "../PostsLIst/PostsList";
 import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 
+
 function App() {
   return (
     <Router>
       <Navbar />
-      <div className="page">
+      <div className={stylesApp.page}>
         <Routes>
           <Route
             path="/"

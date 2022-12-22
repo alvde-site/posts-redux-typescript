@@ -1,3 +1,4 @@
+import stylesSinglePostPage from "../../components/SinglePostPage/SinglePostPage.module.css";
 import { useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
 import { selectPostById } from "../../services/reducers/postsSlice";
@@ -17,19 +18,19 @@ export const SinglePostPage = () => {
 
   return (
     <section>
-      <article className="post">
+      <article className={stylesSinglePostPage.post}>
         <PostAuthor
           userId={post.user}
           timestamp={post.created_at}
           dateTitle={post.dateTitle}
         />
         <h2>{post.nameRU}</h2>
-        <p className="post__content">{post.description}</p>
-        <div className="post__links">
-          <Link className="post__link" to={`/editPost/${post.id}`}>
+        <p className={stylesSinglePostPage.post__content}>{post.description}</p>
+        <div className={stylesSinglePostPage.post__links}>
+          <Link className={stylesSinglePostPage.post__link} to={`/editPost/${post.id}`}>
             Редактировать отзыв
           </Link>
-          <Link className="post__link" to="/">
+          <Link className={stylesSinglePostPage.post__link} to="/">
             К остальным отзывам
           </Link>
         </div>

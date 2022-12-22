@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import stylesPostsList from "../../components/PostsLIst/PostsList.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link } from "react-router-dom";
 import { fetchPosts, selectAllPosts } from "../../services/reducers/postsSlice";
@@ -9,15 +10,15 @@ import { TPost } from "../../utils/types";
 
 const PostExcerpt = ({ post }: { post: TPost }) => {
   return (
-    <article className="posts__excerpt" key={post.id}>
+    <article className={stylesPostsList.posts__excerpt} key={post.id}>
       <h3>{post.nameRU}</h3>
-      <p className="posts__content">{post.description}</p>
+      <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor
         userId={post.user}
         timestamp={post.created_at}
         dateTitle={post.dateTitle}
       />
-      <Link className="posts__morelink" to={`/posts/${post.id}`}>
+      <Link className={stylesPostsList.posts__morelink} to={`/posts/${post.id}`}>
         читать весь отзыв
       </Link>
       <ReactonButtons post={post} />

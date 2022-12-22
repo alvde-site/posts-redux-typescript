@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import stylesAddPostForm from "../../components/AddPostForm/AddPostForm.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
@@ -37,10 +38,10 @@ export const AddPostForm = () => {
   ));
 
   return (
-    <section className="addpost">
-      <h2 className="addpost__title">Оставить отзыв</h2>
-      <form className="postform">
-        <label htmlFor="postTitle" className="postform__item">
+    <section className={stylesAddPostForm.addpost}>
+      <h2 className={stylesAddPostForm.addpost__title}>Оставить отзыв</h2>
+      <form className={stylesAddPostForm.postform}>
+        <label htmlFor="postTitle" className={stylesAddPostForm.postform__item}>
           Заголовок отзыва:
         </label>
         <input
@@ -49,14 +50,14 @@ export const AddPostForm = () => {
           name="postTitle"
           value={nameRU}
           onChange={onTitleChanged}
-          className="postform__item"
+          className={stylesAddPostForm.postform__item}
         />
         <label htmlFor="postAuthor">Автор отзыва:</label>
         <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
           <option value=""></option>
           {usersOptions}
         </select>
-        <label htmlFor="postContent" className="postform__item">
+        <label htmlFor="postContent" className={stylesAddPostForm.postform__item}>
           Описание:
         </label>
         <textarea
@@ -64,11 +65,11 @@ export const AddPostForm = () => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className="postform__item"
+          className={stylesAddPostForm.postform__item}
         />
         <button
           type="button"
-          className="postform__button"
+          className={stylesAddPostForm.postform__button}
           onClick={onSavePostClick}
           disabled={!canSave}
         >

@@ -1,20 +1,5 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/inter.css);
-@import url(../components/App/App.css);
-
-
-/* Navbar */
-@import url(../components/Navbar/Navbar.css);
-
-/* Forms */
-
-@import url(../components/AddPostForm/AddPostForm.css);
-@import url(../components/EditPostForm/EditPostForm.css);
-
-/* Posts list */
-
-@import url(../components/PostsLIst/PostsList.css);
-@import url(../components/SinglePostPage/SinglePostPage.css);
 
 /* Notifications list */
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import stylesEditPostForm from "../../components/EditPostForm/EditPostForm.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -29,10 +30,10 @@ export const EditPostForm = () => {
   };
 
   return (
-    <section className="editpost">
-      <h2 className="editpost__title">Редактировать отзыв</h2>
-      <form className="postform">
-        <label htmlFor="postTitle" className="postform__item">
+    <section className={stylesEditPostForm.editpost}>
+      <h2 className={stylesEditPostForm.editpost__title}>Редактировать отзыв</h2>
+      <form className={stylesEditPostForm.postform}>
+        <label htmlFor="postTitle" className={stylesEditPostForm.postform__item}>
           Заголовок отзыва:
         </label>
         <input
@@ -41,9 +42,9 @@ export const EditPostForm = () => {
           name="postTitle"
           value={nameRU}
           onChange={onTitleChanged}
-          className="postform__item"
+          className={stylesEditPostForm.postform__item}
         />
-        <label htmlFor="postContent" className="postform__item">
+        <label htmlFor="postContent" className={stylesEditPostForm.postform__item}>
           Описание:
         </label>
         <textarea
@@ -51,11 +52,11 @@ export const EditPostForm = () => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className="postform__item"
+          className={stylesEditPostForm.postform__item}
         />
         <button
           type="button"
-          className="postform__button"
+          className={stylesEditPostForm.postform__button}
           onClick={onSavePostClick}
         >
           Сохранить отзыв
