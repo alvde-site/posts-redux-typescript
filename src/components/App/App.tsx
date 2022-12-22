@@ -9,7 +9,7 @@ import {
 import { AddPostForm } from "../AddPostForm/AddPostForm";
 
 import { Navbar } from "../Navbar/Navbar";
-import { PostsList } from "../PostsLIst/PostsList";
+import { PostsList } from "../PostsList/PostsList";
 import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 

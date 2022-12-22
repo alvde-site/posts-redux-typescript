@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import stylesPostsList from "../../components/PostsLIst/PostsList.module.css";
+import stylesPostsList from "../../components/PostsList/PostsList.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link } from "react-router-dom";
 import { fetchPosts, selectAllPosts } from "../../services/reducers/postsSlice";
