@@ -1,4 +1,4 @@
-type InitialReactions = {
+type TInitialReactions = {
   thumbsUp: number;
   thumbsDown: number;
   hooray: number;
@@ -7,14 +7,14 @@ type InitialReactions = {
   eyes: number;
 };
 
-export type FormattedPost = {
+export type TFormattedPost = {
   id: string;
   date: string;
   dateTitle: string;
   description: string;
   nameRU: string;
   user: string;
-  reactions: InitialReactions;
+  reactions: TInitialReactions;
 };
 
 export type TPost = {

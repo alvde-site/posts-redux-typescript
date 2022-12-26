@@ -5,11 +5,11 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { initialReactions } from "../../utils/constants";
-import { PostsState } from "../../utils/interfaces";
-import { FormattedPost, TPost } from "../../utils/types";
+import { IPostsState } from "../../utils/interfaces";
+import { TFormattedPost, TPost } from "../../utils/types";
 import { RootState } from "../store";
 
-const initialState: PostsState = {
+const initialState: IPostsState = {
   posts: [],
   status: "idle",
   error: undefined,
@@ -38,7 +38,7 @@ const postsSlice = createSlice({
       }
     },
     postAdded: {
-      reducer(state, action: PayloadAction<FormattedPost>) {
+      reducer(state, action: PayloadAction<TFormattedPost>) {
         state.posts.push(action.payload);
       },
       prepare(description, nameRU, userId) {
