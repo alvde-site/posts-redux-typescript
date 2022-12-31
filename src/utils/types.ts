@@ -19,6 +19,8 @@ export type TFormattedPost = {
 
 export type TPost = {
   id: string;
+  description: string;
+  nameRU: string;
   [index: string]: any;
 };
 

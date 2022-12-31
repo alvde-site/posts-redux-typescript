@@ -29,6 +29,7 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
 export const PostsList = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
+  console.log(posts)
 
   const postStatus = useAppSelector((state) => state.posts.status);
   const error = useAppSelector((state) => state.posts.error);
