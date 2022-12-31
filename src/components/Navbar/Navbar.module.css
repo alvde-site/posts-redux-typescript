@@ -1,14 +1,16 @@
-.navbar__title {
-  color: white;
+.navbar {
+  max-width: 1240px;
+  background: #e4ddb6;
 }
 
 .navbar__content {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   padding: 20px;
-  background: #aaa;
+}
+
+.navbar__title {
+  color: white;
+  margin: 0;
 }
 
 .navbar__link {

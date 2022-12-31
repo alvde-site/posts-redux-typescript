@@ -13,12 +13,11 @@ import { PostsList } from "../PostsList/PostsList";
 import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
 
-
 function App() {
   return (
     <Router>
-      <Navbar />
       <div className={stylesApp.page}>
+        <Navbar />
         <Routes>
           <Route
             path="/"

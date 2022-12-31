@@ -29,7 +29,6 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
 export const PostsList = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
-  console.log(posts)
 
   const postStatus = useAppSelector((state) => state.posts.status);
   const error = useAppSelector((state) => state.posts.error);
@@ -55,8 +54,8 @@ export const PostsList = () => {
   }
 
   return (
-    <section className="posts">
-      <h2 className="posts__title">Отзывы</h2>
+    <section className={stylesPostsList.posts}>
+      <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
       {content}
     </section>
   );
