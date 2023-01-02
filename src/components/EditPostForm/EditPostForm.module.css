@@ -25,6 +25,15 @@
     height: 150px;
 }
 
+.postform__button {
+    background: #1976d2;
+    color: white;
+    border-radius: 4px;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border: none;
+  }
+
 .postform__button:hover {
     opacity: 0.5;
 }
