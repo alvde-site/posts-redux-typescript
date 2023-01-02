@@ -52,6 +52,7 @@ const postsSlice = createSlice({
             nameRU,
             user: userId,
             reactions: initialReactions,
+            created_at: new Date().toISOString(),
           },
         };
       },
@@ -75,7 +76,10 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
         const formattedPost = action.payload.map((post) => {
-          return { ...post, reactions: generateRandomReactions() };
+          return {
+            ...post,
+            reactions: generateRandomReactions(),
+          };
         });
         state.posts = state.posts.concat(formattedPost);
       })
