@@ -12,8 +12,13 @@ import { Navbar } from "../Navbar/Navbar";
 import { PostsList } from "../PostsList/PostsList";
 import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
+import { HaveToLoggedIn } from "../HaveToLoggedIn";
+import { useAppSelector } from "../../utils/hooks";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function App() {
+  // const dispatch = useAppDispatch();
+  const auth = useAppSelector(selectAllAuth);
   return (
     <Router>
       <div className={stylesApp.page}>
@@ -26,7 +31,7 @@ function App() {
               path="/"
               element={
                 <React.Fragment>
-                  <AddPostForm />
+                  {!auth ? <HaveToLoggedIn /> : <AddPostForm />}
                   <PostsList />
                 </React.Fragment>
               }

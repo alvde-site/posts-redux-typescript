@@ -3,6 +3,7 @@ import stylesAddPostForm from "../../components/AddPostForm/AddPostForm.module.c
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
+
 export const AddPostForm = () => {
   const [description, setDescription] = useState("");
   const [nameRU, setNameRU] = useState("");
@@ -57,7 +58,10 @@ export const AddPostForm = () => {
           <option value=""></option>
           {usersOptions}
         </select>
-        <label htmlFor="postContent" className={stylesAddPostForm.postform__item}>
+        <label
+          htmlFor="postContent"
+          className={stylesAddPostForm.postform__item}
+        >
           Описание:
         </label>
         <textarea
