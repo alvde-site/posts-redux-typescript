@@ -6,6 +6,25 @@
     text-align: center;
 }
 
+.postform {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.postform__item {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.postform__item_description {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 150px;
+}
+
 .postform__button:hover {
     opacity: 0.5;
 }

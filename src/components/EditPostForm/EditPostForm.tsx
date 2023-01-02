@@ -52,7 +52,7 @@ export const EditPostForm = () => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className={stylesEditPostForm.postform__item}
+          className={stylesEditPostForm.postform__item_description}
         />
         <button
           type="button"
