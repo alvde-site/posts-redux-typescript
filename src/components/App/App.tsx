@@ -17,21 +17,26 @@ function App() {
   return (
     <Router>
       <div className={stylesApp.page}>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <React.Fragment>
-                <AddPostForm />
-                <PostsList />
-              </React.Fragment>
-            }
-          />
-          <Route path="/posts/:postId" element={<SinglePostPage />} />
-          <Route path="/editPost/:postId" element={<EditPostForm />} />
-          {/* <Route path="/auth" element={this.state.token ? <Navigate to="/competition" /> : AuthPage} */}
-        </Routes>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <React.Fragment>
+                  <AddPostForm />
+                  <PostsList />
+                </React.Fragment>
+              }
+            />
+            <Route path="/posts/:postId" element={<SinglePostPage />} />
+            <Route path="/editPost/:postId" element={<EditPostForm />} />
+            {/* <Route path="/auth" element={this.state.token ? <Navigate to="/competition" /> : AuthPage} */}
+          </Routes>
+        </main>
+        <footer className={stylesApp.footer}></footer>
       </div>
     </Router>
   );
