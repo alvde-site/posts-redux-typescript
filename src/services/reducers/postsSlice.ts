@@ -8,6 +8,7 @@ import { initialReactions } from "../../utils/constants";
 import { IPostsState } from "../../utils/interfaces";
 import { TFormattedPost, TPost } from "../../utils/types";
 import { RootState } from "../store";
+import { generateRandomReactions } from "../../utils/getRandomReactions";
 
 const initialState: IPostsState = {
   posts: [],
@@ -74,7 +75,7 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
         const formattedPost = action.payload.map((post) => {
-          return { ...post, reactions: initialReactions };
+          return { ...post, reactions: generateRandomReactions() };
         });
         state.posts = state.posts.concat(formattedPost);
       })
