@@ -12,7 +12,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { PostsList } from "../PostsList/PostsList";
 import { SinglePostPage } from "../SinglePostPage/SinglePostPage";
 import { EditPostForm } from "../EditPostForm/EditPostForm";
-import { HaveToLoggedIn } from "../HaveToLoggedIn";
+import { HaveToLoggedIn } from "../HaveToLoggedIn/HaveToLoggedIn";
 import { useAppSelector } from "../../utils/hooks";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 
