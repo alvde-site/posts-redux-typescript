@@ -1,6 +1,11 @@
 import React from "react";
 import stylesApp from "./App.module.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { AddPostForm } from "../AddPostForm/AddPostForm";
 import { AuthPage } from "../AuthPage/AuthPage";
 
@@ -24,15 +29,18 @@ function App() {
         <main>
           <Routes>
             <Route
+              path="/login"
+              element={auth.loggedIn ? <Navigate to="/" /> : <AuthPage />}
+            />
+            <Route
               path="/"
               element={
                 <React.Fragment>
-                  {!auth ? <HaveToLoggedIn /> : <AddPostForm />}
+                  {!auth.loggedIn ? <HaveToLoggedIn /> : <AddPostForm />}
                   <PostsList />
                 </React.Fragment>
               }
             />
-            <Route path="/login" element={<AuthPage />} />
             <Route path="/posts/:postId" element={<SinglePostPage />} />
             <Route path="/editPost/:postId" element={<EditPostForm />} />
           </Routes>

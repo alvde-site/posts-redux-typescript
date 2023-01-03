@@ -3,6 +3,7 @@ import { RootState } from "../store";
 
 const initialState = {
   loggedIn: false,
+  userId: null,
 };
 
 const authSlice = createSlice({
@@ -10,8 +11,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     signin(state, action) {
-      const { loggedIn } = action.payload;
+      const { loggedIn, userId } = action.payload;
       state.loggedIn = loggedIn;
+      state.userId = userId;
     },
     signout(state, action) {
       console.log("signout", state, action.payload);
@@ -19,7 +21,7 @@ const authSlice = createSlice({
   },
 });
 
-export const selectAllAuth = (state: RootState) => state.auth.loggedIn;
+export const selectAllAuth = (state: RootState) => state.auth;
 
 export const { signin } = authSlice.actions;
 

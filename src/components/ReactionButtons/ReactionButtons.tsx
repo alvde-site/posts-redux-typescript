@@ -16,16 +16,16 @@ const reactionEmoji = {
 
 export const ReactonButtons = ({ post }: { post: TPost }) => {
   const dispatch = useAppDispatch();
-  const isLoggedIn = useAppSelector(selectAllAuth);
+  const auth = useAppSelector(selectAllAuth);
 
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
       <button
-        className={`${isLoggedIn?stylesReactionButtons.button:stylesReactionButtons.button_disabled}`}
+        className={`${auth.loggedIn?stylesReactionButtons.button:stylesReactionButtons.button_disabled}`}
         key={name}
         type="button"
         onClick={() =>
-          { isLoggedIn && dispatch(reactionAdded({ postId: post.id, reaction: name }))}
+          { auth.loggedIn && dispatch(reactionAdded({ postId: post.id, reaction: name }))}
         }
       >
         {emoji} {post.reactions[name]}

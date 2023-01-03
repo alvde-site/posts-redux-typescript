@@ -1,8 +1,10 @@
 import { useState } from "react";
 import stylesAuthPage from "./AuthPage.module.css";
-import { useAppSelector } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { signin } from "../../services/reducers/authSlice";
 
 export const AuthPage = () => {
+  const dispatch = useAppDispatch();
   const [userId, setUserId] = useState("");
   const onUserChanged = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setUserId(e.target.value);
@@ -12,10 +14,11 @@ export const AuthPage = () => {
   const users = useAppSelector((state) => state.users);
 
   const onAuthClick = () => {
-    // if (description && nameRU && userId) {
-    //   dispatch(postAdded(description, nameRU, userId));
-    // }
+    if (userId) {
+      dispatch(signin({loggedIn: true, userId}));
+    }
 
+    
     setUserId("");
   };
 
