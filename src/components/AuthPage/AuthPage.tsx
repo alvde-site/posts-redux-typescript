@@ -1,8 +1,8 @@
 import { useState } from "react";
-import stylesSignin from "./Signin.module.css";
+import stylesAuthPage from "./AuthPage.module.css";
 import { useAppSelector } from "../../utils/hooks";
 
-export const Signin = () => {
+export const AuthPage = () => {
   const [userId, setUserId] = useState("");
   const onUserChanged = (e: React.ChangeEvent<HTMLSelectElement>) =>
     setUserId(e.target.value);
@@ -26,24 +26,26 @@ export const Signin = () => {
   ));
 
   return (
-    <section className={stylesSignin.auth}>
-      <h2 className={stylesSignin.title}>Авторизация пользователя</h2>
-      <form className={stylesSignin.authform}>
+    <section className={stylesAuthPage.auth}>
+      <h2 className={stylesAuthPage.title}>Авторизация пользователя</h2>
+      <form className={stylesAuthPage.authform}>
         <label htmlFor="postAuthor">Выбрать пользователя:</label>
-        <select id="postAuthor" value={userId} onChange={onUserChanged}>
+        <select
+          id="postAuthor"
+          value={userId}
+          onChange={onUserChanged}
+          className={stylesAuthPage.item}
+        >
           <option value=""></option>
           {usersOptions}
         </select>
-        <label htmlFor="postContent" className={stylesSignin.item}>
-          Описание:
-        </label>
         <button
           type="button"
-          className={stylesSignin.button}
+          className={`${canSave?stylesAuthPage.button:stylesAuthPage.button_disabled}`}
           onClick={onAuthClick}
           disabled={!canSave}
         >
-          Сохранить отзыв
+          Войти
         </button>
       </form>
     </section>
