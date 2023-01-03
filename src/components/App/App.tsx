@@ -15,6 +15,7 @@ import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { HaveToLoggedIn } from "../HaveToLoggedIn/HaveToLoggedIn";
 import { useAppSelector } from "../../utils/hooks";
 import { selectAllAuth } from "../../services/reducers/authSlice";
+import { Signin } from "../Signin/Signin";
 
 function App() {
   // const dispatch = useAppDispatch();
@@ -36,6 +37,7 @@ function App() {
                 </React.Fragment>
               }
             />
+            <Route path="/login" element={<Signin/>}/>
             <Route path="/posts/:postId" element={<SinglePostPage />} />
             <Route path="/editPost/:postId" element={<EditPostForm />} />
             {/* <Route path="/auth" element={this.state.token ? <Navigate to="/competition" /> : AuthPage} */}

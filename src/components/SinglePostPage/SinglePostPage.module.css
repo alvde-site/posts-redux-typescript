@@ -18,3 +18,7 @@
 .post__link:hover {
     opacity: 0.5;
 }
+
+.post__link_disabled {
+    display: none;
+}

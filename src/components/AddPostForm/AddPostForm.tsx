@@ -38,9 +38,10 @@ export const AddPostForm = () => {
     </option>
   ));
 
+
   return (
     <section className={stylesAddPostForm.addpost}>
-      <h2 className={stylesAddPostForm.addpost__title}>Оставить отзыв</h2>
+      <h2 className={stylesAddPostForm.title}>Оставить отзыв</h2>
       <form className={stylesAddPostForm.postform}>
         <label htmlFor="postTitle" className={stylesAddPostForm.postform__item}>
           Заголовок отзыва:
@@ -51,7 +52,7 @@ export const AddPostForm = () => {
           name="postTitle"
           value={nameRU}
           onChange={onTitleChanged}
-          className={stylesAddPostForm.postform__item}
+          className={stylesAddPostForm.item}
         />
         <label htmlFor="postAuthor">Автор отзыва:</label>
         <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
@@ -60,7 +61,7 @@ export const AddPostForm = () => {
         </select>
         <label
           htmlFor="postContent"
-          className={stylesAddPostForm.postform__item}
+          className={stylesAddPostForm.item}
         >
           Описание:
         </label>
@@ -69,11 +70,11 @@ export const AddPostForm = () => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className={stylesAddPostForm.postform__item}
+          className={stylesAddPostForm.item}
         />
         <button
           type="button"
-          className={stylesAddPostForm.postform__button}
+          className={stylesAddPostForm.button}
           onClick={onSavePostClick}
           disabled={!canSave}
         >
