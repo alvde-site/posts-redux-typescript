@@ -4,12 +4,12 @@ export type TInitialAuth = {
 }
 
 type TInitialReactions = {
-  thumbsUp: {count: number, users: string[]};
-  thumbsDown: {count: number, users: string[]};
-  hooray: {count: number, users: string[]};
-  heart: {count: number, users: string[]};
-  rocket: {count: number, users: string[]};
-  eyes: {count: number, users: string[]};
+  thumbsUp: {count: number, likes: string[]};
+  thumbsDown: {count: number, likes: string[]};
+  hooray: {count: number, likes: string[]};
+  heart: {count: number, likes: string[]};
+  rocket: {count: number, likes: string[]};
+  eyes: {count: number, likes: string[]};
 };
 
 export type TFormattedPost = {
