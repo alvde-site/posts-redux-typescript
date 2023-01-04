@@ -17,7 +17,6 @@ const reactionEmoji = {
 export const ReactonButtons = ({ post }: { post: TPost }) => {
   const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
-
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
     return (
       <button
@@ -28,8 +27,7 @@ export const ReactonButtons = ({ post }: { post: TPost }) => {
           { auth.loggedIn && dispatch(reactionAdded({ postId: post.id, reaction: name }))}
         }
       >
-        {emoji} {post.reactions[name]}
-        {console.log(post.reactions)}
+        {emoji} {post.reactions[name].count}
       </button>
     );
   });

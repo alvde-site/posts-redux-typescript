@@ -19,10 +19,10 @@ export const ALMOST_TWO_YEARS_RU = "около 2 лет";
 // end for translatedTime.js
 
 export const initialReactions = {
-  thumbsUp: 0,
-  thumbsDown: 0,
-  hooray: 0,
-  heart: 0,
-  rocket: 0,
-  eyes: 0,
+  thumbsUp: { count: 0, users: [] },
+  thumbsDown: { count: 0, users: [] },
+  hooray: { count: 0, users: [] },
+  heart: { count: 0, users: [] },
+  rocket: { count: 0, users: [] },
+  eyes: { count: 0, users: [] },
 };
