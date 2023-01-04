@@ -17,6 +17,7 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
         userId={post.user}
         timestamp={post.created_at}
         dateTitle={post.dateTitle}
+        director={post.director}
       />
       <Link className={stylesPostsList.posts__morelink} to={`/posts/${post.id}`}>
         читать весь отзыв

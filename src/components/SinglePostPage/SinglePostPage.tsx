@@ -23,6 +23,7 @@ export const SinglePostPage = () => {
           userId={post.user}
           timestamp={post.created_at}
           dateTitle={post.dateTitle}
+          director={post.director}
         />
         <h2>{post.nameRU}</h2>
         <p className={stylesSinglePostPage.post__content}>{post.description}</p>
