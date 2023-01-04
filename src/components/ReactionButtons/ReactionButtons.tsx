@@ -29,6 +29,7 @@ export const ReactonButtons = ({ post }: { post: TPost }) => {
         }
       >
         {emoji} {post.reactions[name]}
+        {console.log(post.reactions)}
       </button>
     );
   });
