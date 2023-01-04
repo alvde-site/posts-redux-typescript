@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { TInitialAuth } from "../../utils/types";
 
-const initialState = {
+
+
+const initialState: TInitialAuth = {
   loggedIn: false,
   userId: null,
 };

@@ -24,7 +24,7 @@ function App() {
     <Router>
       <div className={stylesApp.page}>
         <header>
-          <Navbar />
+          <Navbar userId={auth.userId}/>
         </header>
         <main>
           <Routes>
@@ -36,7 +36,7 @@ function App() {
               path="/"
               element={
                 <React.Fragment>
-                  {!auth.loggedIn ? <HaveToLoggedIn /> : <AddPostForm />}
+                  {!auth.loggedIn ? <HaveToLoggedIn /> : <AddPostForm userId={auth.userId}/>}
                   <PostsList />
                 </React.Fragment>
               }

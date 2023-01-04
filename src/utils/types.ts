@@ -1,3 +1,8 @@
+export type TInitialAuth = {
+  loggedIn: boolean;
+  userId: null | string;
+}
+
 type TInitialReactions = {
   thumbsUp: number;
   thumbsDown: number;
