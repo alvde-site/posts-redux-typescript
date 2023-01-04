@@ -32,10 +32,20 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     reactionAdded(state, action) {
-      const { postId, reaction } = action.payload;
+      const { postId, reaction, userId } = action.payload;
       const existingPost = state.posts.find((post) => post.id === postId);
       if (existingPost) {
-        existingPost.reactions[reaction].count++;
+        const isLiked = existingPost.reactions[reaction].likes.indexOf(userId);
+        console.log(isLiked)
+        if(isLiked >= 0) {
+          existingPost.reactions[reaction].count--;
+          const existingPostLikes = existingPost.reactions[reaction].likes;
+          const userIndex = existingPostLikes.map((id:string) => id !== userId);
+          existingPostLikes.splice(userIndex, 1);
+        } else {
+          existingPost.reactions[reaction].count++;
+          existingPost.reactions[reaction].likes.push(userId);
+        }
       }
     },
     postAdded: {

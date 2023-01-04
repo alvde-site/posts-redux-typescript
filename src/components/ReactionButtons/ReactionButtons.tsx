@@ -24,7 +24,7 @@ export const ReactonButtons = ({ post }: { post: TPost }) => {
         key={name}
         type="button"
         onClick={() =>
-          { auth.loggedIn && dispatch(reactionAdded({ postId: post.id, reaction: name }))}
+          { auth.loggedIn && dispatch(reactionAdded({ postId: post.id, reaction: name, userId: auth.userId}))}
         }
       >
         {emoji} {post.reactions[name].count}
