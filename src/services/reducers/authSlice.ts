@@ -19,7 +19,9 @@ const authSlice = createSlice({
       state.userId = userId;
     },
     signout(state, action) {
-      console.log("signout", state, action.payload);
+      const { loggedIn } = action.payload;
+      state.loggedIn = loggedIn;
+      // state.userId = userId;
     },
   },
 });

@@ -58,6 +58,7 @@ export const PostsList = () => {
     <section className={stylesPostsList.posts}>
       <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
       {content}
+      <button>Показать еще</button>
     </section>
   );
 };
