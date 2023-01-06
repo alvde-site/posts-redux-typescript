@@ -4,6 +4,10 @@
     margin: 0 auto;
 }
 
+.title {
+    text-align: center;
+}
+
 .post__links {
     display: flex;
     justify-content: space-between;

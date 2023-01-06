@@ -13,7 +13,7 @@ export const SinglePostPage = () => {
   if (!post) {
     return (
       <section>
-        <h2>Отзыв не найдет по указанному id!</h2>
+        <h2 className={stylesSinglePostPage.title}>Отзыв не найдет по указанному id!</h2>
       </section>
     );
   }
@@ -27,7 +27,7 @@ export const SinglePostPage = () => {
           dateTitle={post.dateTitle}
           director={post.director}
         />
-        <h2>{post.nameRU}</h2>
+        <h2 className={stylesSinglePostPage.title}>{post.nameRU}</h2>
         <p className={stylesSinglePostPage.post__content}>{post.description}</p>
         <div className={stylesSinglePostPage.post__links}>
           {(auth.userId === "0" || auth.userId === post.user) && (
