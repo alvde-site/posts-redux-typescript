@@ -15,7 +15,7 @@
 }
 
 .posts__excerpt {
-  padding: 0.25rem 0.25rem;
+  padding: 8px;
   border: 1px solid rgb(177, 174, 174);
   border-radius: 7px;
   background-color: #f9f9f9;
@@ -35,5 +35,21 @@
 }
 
 .posts__morelink:hover {
+  opacity: 0.5;
+}
+
+.posts__button {
+  display: block;
+  min-width: 40px;
+  margin: 20px auto;
+  background: #1976d2;
+  color: white;
+  border-radius: 4px;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: none;
+}
+
+.posts__button:hover {
   opacity: 0.5;
 }
