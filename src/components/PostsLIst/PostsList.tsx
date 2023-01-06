@@ -70,7 +70,7 @@ export const PostsList = () => {
   return (
     <section className={stylesPostsList.posts}>
       <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
-      {content}
+      <div className={stylesPostsList.posts__container}>{content}</div>
       <button>Показать еще</button>
     </section>
   );
