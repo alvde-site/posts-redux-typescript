@@ -7,10 +7,10 @@ function PageNotFound() {
     navigate(-1);
   }
   return (
-    <div className={stylesPageNotFound.notound}>
+    <div className={stylesPageNotFound.notfound}>
       <h3 className={stylesPageNotFound.notfound__title}>404</h3>
       <p className={stylesPageNotFound.notfound__text}>Страница не найдена</p>
-      <button className={stylesPageNotFound.notfound__tomain} onClick={handleBack}>
+      <button className={stylesPageNotFound.notfound__main} onClick={handleBack}>
         Назад
       </button>
     </div>
