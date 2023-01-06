@@ -10,11 +10,8 @@ export const Navbar = ({ userId }: { userId: null | string }) => {
 
   const handleSignOut = () => {
     if (userId) {
-      dispatch(signin({loggedIn: false}));
+      dispatch(signin({loggedIn: false, userId: null}));
     }
-
-    
-    // setUserId("");
   };
   return (
     <nav className={stylesNavbar.navbar}>

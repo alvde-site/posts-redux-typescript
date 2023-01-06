@@ -18,7 +18,7 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
   const auth = useAppSelector(selectAllAuth);
   return (
     <article className={stylesPostsList.posts__excerpt} key={post.id}>
-      {auth.userId === "0" && <button onClick={handleDeletePost}>Удалить отзыв</button>}
+      {(auth.userId === "0" || auth.userId === post.user) && <button onClick={handleDeletePost}>Удалить отзыв</button>}
       <h3>{post.nameRU}</h3>
       <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor
