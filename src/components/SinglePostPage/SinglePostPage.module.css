@@ -29,3 +29,18 @@
 .post__link_disabled {
     display: none;
 }
+
+.back {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3456f3;
+    display: block;
+    margin: 0 auto;
+    min-width: 100px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}

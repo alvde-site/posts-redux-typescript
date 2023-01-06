@@ -1,6 +1,6 @@
 import stylesSinglePostPage from "../../components/SinglePostPage/SinglePostPage.module.css";
 import { useAppSelector } from "../../utils/hooks";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { selectPostById } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
 import { selectAllAuth } from "../../services/reducers/authSlice";
@@ -10,10 +10,20 @@ export const SinglePostPage = () => {
   const post = useAppSelector((state) => selectPostById(state, postId!));
   const auth = useAppSelector(selectAllAuth);
 
+  const navigate = useNavigate();
+  function handleBack() {
+    navigate(-1);
+  }
+
   if (!post) {
     return (
       <section>
-        <h2 className={stylesSinglePostPage.title}>Отзыв не найдет по указанному id!</h2>
+        <h2 className={stylesSinglePostPage.title}>
+          Отзыв не найдет по указанному id!
+        </h2>
+        <button className={stylesSinglePostPage.back} onClick={handleBack}>
+          Назад
+        </button>
       </section>
     );
   }

@@ -45,11 +45,6 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
           onChange={onTitleChanged}
           className={stylesAddPostForm.item}
         />
-        {/* <label htmlFor="postAuthor">Автор отзыва:</label>
-        <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
-          <option value=""></option>
-          {usersOptions}
-        </select> */}
         <label htmlFor="postContent" className={stylesAddPostForm.item}>
           Описание:
         </label>
@@ -58,7 +53,7 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className={stylesAddPostForm.textarea}
+          className={stylesAddPostForm.description}
         />
         <button
           type="button"
