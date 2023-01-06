@@ -13,12 +13,14 @@ import { selectAllAuth } from "../../services/reducers/authSlice";
 const PostExcerpt = ({ post }: { post: TPost }) => {
   const dispatch = useAppDispatch();
   const handleDeletePost = () => {
-    dispatch(postDeleted({id: post.id}))
-  }
+    dispatch(postDeleted({ id: post.id }));
+  };
   const auth = useAppSelector(selectAllAuth);
   return (
     <article className={stylesPostsList.posts__excerpt} key={post.id}>
-      {(auth.userId === "0" || auth.userId === post.user) && <button onClick={handleDeletePost}>Удалить отзыв</button>}
+      {(auth.userId === "0" || auth.userId === post.user) && (
+        <button onClick={handleDeletePost}>Удалить отзыв</button>
+      )}
       <h3>{post.nameRU}</h3>
       <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor
@@ -27,7 +29,10 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
         dateTitle={post.dateTitle}
         director={post.director}
       />
-      <Link className={stylesPostsList.posts__morelink} to={`/posts/${post.id}`}>
+      <Link
+        className={stylesPostsList.posts__morelink}
+        to={`/posts/${post.id}`}
+      >
         читать весь отзыв
       </Link>
       <ReactonButtons post={post} />

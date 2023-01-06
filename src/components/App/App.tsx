@@ -16,6 +16,7 @@ import { EditPostForm } from "../EditPostForm/EditPostForm";
 import { HaveToLoggedIn } from "../HaveToLoggedIn/HaveToLoggedIn";
 import { useAppSelector } from "../../utils/hooks";
 import { selectAllAuth } from "../../services/reducers/authSlice";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
   const auth = useAppSelector(selectAllAuth);
@@ -23,7 +24,7 @@ function App() {
     <Router>
       <div className={stylesApp.page}>
         <header>
-          <Navbar userId={auth.userId}/>
+          <Navbar userId={auth.userId} />
         </header>
         <main>
           <Routes>
@@ -35,13 +36,18 @@ function App() {
               path="/"
               element={
                 <React.Fragment>
-                  {!auth.loggedIn ? <HaveToLoggedIn /> : <AddPostForm userId={auth.userId}/>}
-                  <PostsList/>
+                  {!auth.loggedIn ? (
+                    <HaveToLoggedIn />
+                  ) : (
+                    <AddPostForm userId={auth.userId} />
+                  )}
+                  <PostsList />
                 </React.Fragment>
               }
             />
             <Route path="/posts/:postId" element={<SinglePostPage />} />
             <Route path="/editPost/:postId" element={<EditPostForm />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
         <footer className={stylesApp.footer}></footer>

@@ -3,10 +3,12 @@ import { useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
 import { selectPostById } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 export const SinglePostPage = () => {
   const { postId } = useParams();
   const post = useAppSelector((state) => selectPostById(state, postId!));
+  const auth = useAppSelector(selectAllAuth);
 
   if (!post) {
     return (
@@ -28,9 +30,14 @@ export const SinglePostPage = () => {
         <h2>{post.nameRU}</h2>
         <p className={stylesSinglePostPage.post__content}>{post.description}</p>
         <div className={stylesSinglePostPage.post__links}>
-          <Link className={stylesSinglePostPage.post__link} to={`/editPost/${post.id}`}>
-            Редактировать отзыв
-          </Link>
+          {(auth.userId === "0" || auth.userId === post.user) && (
+            <Link
+              className={stylesSinglePostPage.post__link}
+              to={`/editPost/${post.id}`}
+            >
+              Редактировать отзыв
+            </Link>
+          )}
           <Link className={stylesSinglePostPage.post__link} to="/">
             К остальным отзывам
           </Link>
