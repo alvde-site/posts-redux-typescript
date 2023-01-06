@@ -7,10 +7,16 @@ import { PostAuthor } from "../PostAuthor/PostAuthor";
 import { ReactonButtons } from "../ReactionButtons/ReactionButtons";
 import { Spinner } from "../Spinner/Spinner";
 import { TPost } from "../../utils/types";
+import { postDeleted } from "../../services/reducers/postsSlice";
 
 const PostExcerpt = ({ post }: { post: TPost }) => {
+  const dispatch = useAppDispatch();
+  const handleDeletePost = () => {
+    dispatch(postDeleted({id: post.id}))
+  }
   return (
     <article className={stylesPostsList.posts__excerpt} key={post.id}>
+      <button onClick={handleDeletePost}>Удалить отзыв</button>
       <h3>{post.nameRU}</h3>
       <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor

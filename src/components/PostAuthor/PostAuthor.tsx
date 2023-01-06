@@ -6,7 +6,7 @@ export const PostAuthor: React.FC<TAuthorPostTimeProps> = ({
   userId,
   timestamp,
   dateTitle,
-  director
+  director,
 }) => {
   const author = useAppSelector((state) =>
     state.users.find((user) => user.id === userId)
@@ -14,7 +14,7 @@ export const PostAuthor: React.FC<TAuthorPostTimeProps> = ({
 
   return (
     <p>
-      {author ? author.name : director? director:"Неизвестный автор"}
+      {author ? author.name : director ? director : "Неизвестный автор"}
       <TimeAgo timestamp={timestamp} dateTitle={dateTitle}></TimeAgo>
     </p>
   );

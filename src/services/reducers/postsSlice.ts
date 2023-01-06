@@ -77,6 +77,13 @@ const postsSlice = createSlice({
         existingPost.description = description;
       }
     },
+    postDeleted(state, action) {
+      const { id } = action.payload;
+      const formattedPost = state.posts.filter((post:any) => post.id !== id
+      );
+      // console.log(formattedPost)
+      state.posts = state.posts.concat(formattedPost);
+    },
   },
   extraReducers(builder) {
     builder
@@ -100,7 +107,7 @@ const postsSlice = createSlice({
   },
 });
 
-export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
+export const { postAdded, postUpdated, postDeleted, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
 
