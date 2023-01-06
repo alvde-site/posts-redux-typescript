@@ -15,14 +15,14 @@
 .postform__item {
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .postform__item_description {
     display: block;
     width: 100%;
-    margin-bottom: 20px;
-    height: 150px;
+    margin-top: 10px;
+    min-height: 180px;
 }
 
 .postform__button {
@@ -32,6 +32,7 @@
     font-weight: 700;
     padding: 0.75rem 1.5rem;
     border: none;
+    margin-top: 40px;
   }
 
 .postform__button:hover {

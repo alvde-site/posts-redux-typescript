@@ -37,9 +37,9 @@ export const AuthPage = () => {
           id="postAuthor"
           value={userId}
           onChange={onUserChanged}
-          className={stylesAuthPage.item}
+          className={stylesAuthPage.select}
         >
-          <option value=""></option>
+          <option value="" className={stylesAuthPage.option}></option >
           {usersOptions}
         </select>
         <button

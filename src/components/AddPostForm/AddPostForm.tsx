@@ -58,7 +58,7 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
           name="postContent"
           value={description}
           onChange={onContentChanged}
-          className={stylesAddPostForm.item}
+          className={stylesAddPostForm.textarea}
         />
         <button
           type="button"
