@@ -18,7 +18,6 @@ import { useAppSelector } from "../../utils/hooks";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function App() {
-  // const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   return (
     <Router>
@@ -37,7 +36,7 @@ function App() {
               element={
                 <React.Fragment>
                   {!auth.loggedIn ? <HaveToLoggedIn /> : <AddPostForm userId={auth.userId}/>}
-                  <PostsList />
+                  <PostsList/>
                 </React.Fragment>
               }
             />

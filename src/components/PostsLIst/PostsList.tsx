@@ -8,15 +8,17 @@ import { ReactonButtons } from "../ReactionButtons/ReactionButtons";
 import { Spinner } from "../Spinner/Spinner";
 import { TPost } from "../../utils/types";
 import { postDeleted } from "../../services/reducers/postsSlice";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 const PostExcerpt = ({ post }: { post: TPost }) => {
   const dispatch = useAppDispatch();
   const handleDeletePost = () => {
     dispatch(postDeleted({id: post.id}))
   }
+  const auth = useAppSelector(selectAllAuth);
   return (
     <article className={stylesPostsList.posts__excerpt} key={post.id}>
-      <button onClick={handleDeletePost}>Удалить отзыв</button>
+      {auth.userId === "0" && <button onClick={handleDeletePost}>Удалить отзыв</button>}
       <h3>{post.nameRU}</h3>
       <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor
@@ -45,7 +47,6 @@ export const PostsList = () => {
   useEffect(() => {
     if (postStatus === "idle" && oneRender === 1) {
       oneRender++;
-      console.log(oneRender)
       dispatch(fetchPosts());
     }
   }, [postStatus, dispatch, oneRender]);

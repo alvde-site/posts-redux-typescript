@@ -79,7 +79,7 @@ const postsSlice = createSlice({
     },
     postDeleted(state, action) {
       const { id } = action.payload;
-      const formattedPost = state.posts.filter((post:any) => post.id !== id
+      const formattedPost = state.posts.filter((post) => post.id !== id
       );
       state.posts = formattedPost;
     },
