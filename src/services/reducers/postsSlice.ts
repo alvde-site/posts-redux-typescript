@@ -81,8 +81,7 @@ const postsSlice = createSlice({
       const { id } = action.payload;
       const formattedPost = state.posts.filter((post:any) => post.id !== id
       );
-      // console.log(formattedPost)
-      state.posts = state.posts.concat(formattedPost);
+      state.posts = formattedPost;
     },
   },
   extraReducers(builder) {

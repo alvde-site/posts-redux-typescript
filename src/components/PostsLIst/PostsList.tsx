@@ -45,6 +45,7 @@ export const PostsList = () => {
   useEffect(() => {
     if (postStatus === "idle" && oneRender === 1) {
       oneRender++;
+      console.log(oneRender)
       dispatch(fetchPosts());
     }
   }, [postStatus, dispatch, oneRender]);
