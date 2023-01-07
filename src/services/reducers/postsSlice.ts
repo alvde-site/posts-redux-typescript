@@ -11,6 +11,7 @@ import { RootState } from "../store";
 import { generateRandomReactions } from "../../utils/getRandomReactions";
 
 const initialState: IPostsState = {
+  initialPosts: [],
   posts: [],
   status: "idle",
   error: undefined,
@@ -83,6 +84,10 @@ const postsSlice = createSlice({
       const formattedPost = state.posts.filter((post) => post.id !== id);
       state.posts = formattedPost;
     },
+    postShown(state, action) {
+      const { count } = action.payload;
+      console.log(count);
+    },
   },
   extraReducers(builder) {
     builder
@@ -97,6 +102,7 @@ const postsSlice = createSlice({
             reactions: generateRandomReactions(),
           };
         });
+        state.initialPosts = state.posts.concat(formattedPost);
         state.posts = state.posts.concat(formattedPost);
       })
       .addCase(fetchPosts.rejected, (state, action) => {
@@ -106,7 +112,7 @@ const postsSlice = createSlice({
   },
 });
 
-export const { postAdded, postUpdated, postDeleted, reactionAdded } =
+export const { postAdded, postUpdated, postDeleted, postShown, reactionAdded } =
   postsSlice.actions;
 
 export default postsSlice.reducer;

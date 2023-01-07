@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import stylesPostsList from "../../components/PostsList/PostsList.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link } from "react-router-dom";
-import { fetchPosts, selectAllPosts } from "../../services/reducers/postsSlice";
+import { fetchPosts, postShown, selectAllPosts } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
 import { ReactonButtons } from "../ReactionButtons/ReactionButtons";
 import { Spinner } from "../Spinner/Spinner";
@@ -43,6 +43,10 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
 export const PostsList = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
+  let count = 0;
+  const handleShowPosts = () => {
+    dispatch(postShown(count))
+  }
 
   const postStatus = useAppSelector((state) => state.posts.status);
   const error = useAppSelector((state) => state.posts.error);
@@ -71,7 +75,7 @@ export const PostsList = () => {
     <section className={stylesPostsList.posts}>
       <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
       <div className={stylesPostsList.posts__container}>{content}</div>
-      <button className={stylesPostsList.posts__button}>Показать еще</button>
+      <button className={stylesPostsList.posts__button} onClick={handleShowPosts}>Показать еще</button>
     </section>
   );
 };
