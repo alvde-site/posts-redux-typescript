@@ -36,12 +36,13 @@ const postsSlice = createSlice({
       const existingPost = state.posts.find((post) => post.id === postId);
       if (existingPost) {
         const isLiked = existingPost.reactions[reaction].likes.indexOf(userId);
-        console.log(isLiked)
-        if(isLiked >= 0) {
+        if (isLiked >= 0) {
           existingPost.reactions[reaction].count--;
           const existingPostLikes = existingPost.reactions[reaction].likes;
-          const userIndex = existingPostLikes.map((id:string) => id !== userId);
-          existingPostLikes.splice(userIndex, 1);
+          const newExistingPostsLikes = existingPostLikes.map(
+            (id: string) => id !== userId
+          );
+          existingPost.reactions[reaction].likes = newExistingPostsLikes;
         } else {
           existingPost.reactions[reaction].count++;
           existingPost.reactions[reaction].likes.push(userId);
@@ -79,8 +80,7 @@ const postsSlice = createSlice({
     },
     postDeleted(state, action) {
       const { id } = action.payload;
-      const formattedPost = state.posts.filter((post) => post.id !== id
-      );
+      const formattedPost = state.posts.filter((post) => post.id !== id);
       state.posts = formattedPost;
     },
   },
@@ -106,7 +106,8 @@ const postsSlice = createSlice({
   },
 });
 
-export const { postAdded, postUpdated, postDeleted, reactionAdded } = postsSlice.actions;
+export const { postAdded, postUpdated, postDeleted, reactionAdded } =
+  postsSlice.actions;
 
 export default postsSlice.reducer;
 
