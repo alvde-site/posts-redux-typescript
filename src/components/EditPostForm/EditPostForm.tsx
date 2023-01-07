@@ -22,7 +22,8 @@ export const EditPostForm = () => {
   const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setDescription(e.target.value);
 
-  const onSavePostClick = () => {
+  const onSavePostClick = (e: React.FormEvent) => {
+    e.preventDefault();
     if (nameRU && description) {
       dispatch(postUpdated({ id: postId, nameRU, description }));
       navigate(`/posts/${postId}`);
@@ -31,20 +32,34 @@ export const EditPostForm = () => {
 
   return (
     <section className={stylesEditPostForm.editpost}>
-      <h2 className={stylesEditPostForm.editpost__title}>Редактировать отзыв</h2>
-      <form className={stylesEditPostForm.postform}>
-        <label htmlFor="postTitle" className={stylesEditPostForm.postform__item}>
+      <h2 className={stylesEditPostForm.editpost__title}>
+        Редактировать отзыв
+      </h2>
+      <form
+        className={stylesEditPostForm.postform}
+        onSubmit={onSavePostClick}
+        action="#"
+        name="editform"
+      >
+        <label
+          htmlFor="postTitle"
+          className={stylesEditPostForm.postform__item}
+        >
           Заголовок отзыва:
         </label>
         <input
           type="text"
           id="postTitle"
           name="postTitle"
+          minLength={2}
           value={nameRU}
           onChange={onTitleChanged}
           className={stylesEditPostForm.postform__item}
         />
-        <label htmlFor="postContent" className={stylesEditPostForm.postform__item}>
+        <label
+          htmlFor="postContent"
+          className={stylesEditPostForm.postform__item}
+        >
           Описание:
         </label>
         <textarea
@@ -54,11 +69,7 @@ export const EditPostForm = () => {
           onChange={onContentChanged}
           className={stylesEditPostForm.postform__description}
         />
-        <button
-          type="button"
-          className={stylesEditPostForm.postform__button}
-          onClick={onSavePostClick}
-        >
+        <button type="submit" className={stylesEditPostForm.postform__button}>
           Сохранить отзыв
         </button>
       </form>

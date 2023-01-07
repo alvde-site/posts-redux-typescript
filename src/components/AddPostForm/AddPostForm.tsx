@@ -3,7 +3,7 @@ import stylesAddPostForm from "../../components/AddPostForm/AddPostForm.module.c
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
-export const AddPostForm = ({userId}:{userId: null | string}) => {
+export const AddPostForm = ({ userId }: { userId: null | string }) => {
   const [description, setDescription] = useState("");
   const [nameRU, setNameRU] = useState("");
 
@@ -13,7 +13,8 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
     state.users.find((user) => user.id === userId)
   );
 
-  const onSavePostClick = () => {
+  const onSavePostClick = (e: React.FormEvent) => {
+    e.preventDefault();
     author && setNameRU(author.name);
     if (description && nameRU && userId) {
       dispatch(postAdded(description, nameRU, userId));
@@ -33,7 +34,12 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
   return (
     <section className={stylesAddPostForm.addpost}>
       <h2 className={stylesAddPostForm.title}>Оставить отзыв</h2>
-      <form className={stylesAddPostForm.postform}>
+      <form
+        className={stylesAddPostForm.postform}
+        onSubmit={onSavePostClick}
+        action="#"
+        name="addform"
+      >
         <label htmlFor="postTitle" className={stylesAddPostForm.postform__item}>
           Заголовок отзыва:
         </label>
@@ -41,6 +47,7 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
           type="text"
           id="postTitle"
           name="postTitle"
+          minLength={2}
           value={nameRU}
           onChange={onTitleChanged}
           className={stylesAddPostForm.item}
@@ -56,9 +63,8 @@ export const AddPostForm = ({userId}:{userId: null | string}) => {
           className={stylesAddPostForm.description}
         />
         <button
-          type="button"
+          type="submit"
           className={stylesAddPostForm.button}
-          onClick={onSavePostClick}
           disabled={!canSave}
         >
           Сохранить отзыв

@@ -13,12 +13,12 @@ export const AuthPage = () => {
 
   const users = useAppSelector((state) => state.users);
 
-  const onAuthClick = () => {
+  const onAuthClick = (e: React.FormEvent) => {
+    e.preventDefault();
     if (userId) {
-      dispatch(signin({loggedIn: true, userId}));
+      dispatch(signin({ loggedIn: true, userId }));
     }
 
-    
     setUserId("");
   };
 
@@ -31,7 +31,12 @@ export const AuthPage = () => {
   return (
     <section className={stylesAuthPage.auth}>
       <h2 className={stylesAuthPage.title}>Авторизация пользователя</h2>
-      <form className={stylesAuthPage.authform}>
+      <form
+        className={stylesAuthPage.authform}
+        onSubmit={onAuthClick}
+        action="#"
+        name="authform"
+      >
         <label htmlFor="postAuthor">Выбрать пользователя:</label>
         <select
           id="postAuthor"
@@ -39,13 +44,14 @@ export const AuthPage = () => {
           onChange={onUserChanged}
           className={stylesAuthPage.select}
         >
-          <option value="" className={stylesAuthPage.option}></option >
+          <option value="" className={stylesAuthPage.option}></option>
           {usersOptions}
         </select>
         <button
-          type="button"
-          className={`${canSave?stylesAuthPage.button:stylesAuthPage.button_disabled}`}
-          onClick={onAuthClick}
+          type="submit"
+          className={`${
+            canSave ? stylesAuthPage.button : stylesAuthPage.button_disabled
+          }`}
           disabled={!canSave}
         >
           Войти
