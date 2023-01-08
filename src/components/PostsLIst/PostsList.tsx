@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {
   fetchPosts,
   postShown,
+  selectAllInitialPosts,
   selectAllPosts,
 } from "../../services/reducers/postsSlice";
 import { PostAuthor } from "../PostAuthor/PostAuthor";
@@ -47,7 +48,8 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
 export const PostsList = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
-  const postsCount = useAppSelector(state => state.posts.postsStart);
+  const initialPosts = useAppSelector(selectAllInitialPosts);
+  const postsCount = useAppSelector((state) => state.posts.postsStart);
   const handleShowPosts = () => {
     dispatch(postShown());
   };
@@ -77,16 +79,20 @@ export const PostsList = () => {
     content = <div>{error}</div>;
   }
 
+  console.log(initialPosts.length, posts.length);
+
   return (
     <section className={stylesPostsList.posts}>
       <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
       <div className={stylesPostsList.posts__container}>{content}</div>
-      <button
-        className={stylesPostsList.posts__button}
-        onClick={handleShowPosts}
-      >
-        Показать еще
-      </button>
+      {posts.length !== initialPosts.length && (
+        <button
+          className={stylesPostsList.posts__button}
+          onClick={handleShowPosts}
+        >
+          Показать еще
+        </button>
+      )}
     </section>
   );
 };

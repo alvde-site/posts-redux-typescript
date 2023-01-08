@@ -108,7 +108,7 @@ const postsSlice = createSlice({
           };
         });
         state.initialPosts = state.posts.concat(formattedPost);
-        state.posts = state.posts.concat(formattedPost);
+        state.posts = state.posts.concat(formattedPost.slice(state.postsStart));
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = "failed";
@@ -123,6 +123,7 @@ export const { postAdded, postUpdated, postDeleted, postShown, reactionAdded } =
 export default postsSlice.reducer;
 
 export const selectAllPosts = (state: RootState) => state.posts.posts;
+export const selectAllInitialPosts = (state: RootState) => state.posts.initialPosts;
 
 export const selectPostById = (state: RootState, postId: string) =>
   state.posts.posts.find((post) => post.id.toString() === postId.toString());
