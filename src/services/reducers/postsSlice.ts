@@ -85,8 +85,14 @@ const postsSlice = createSlice({
       state.posts = formattedPost;
     },
     postShown(state, action) {
-      const { count } = action.payload;
-      console.log(count);
+      const {startPoint, endPoint} = action.payload;
+      let postsStart = startPoint;
+      let postsEnd = endPoint;
+      postsStart -= 12;
+      postsEnd -= 12;
+      const addedPosts = state.initialPosts.slice(postsStart, postsEnd);
+      addedPosts.reverse();
+      state.posts = state.posts.concat(addedPosts);
     },
   },
   extraReducers(builder) {
