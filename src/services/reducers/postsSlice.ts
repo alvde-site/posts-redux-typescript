@@ -13,6 +13,8 @@ import { generateRandomReactions } from "../../utils/getRandomReactions";
 const initialState: IPostsState = {
   initialPosts: [],
   posts: [],
+  postsStart: -12,
+  postsEnd: 0,
   status: "idle",
   error: undefined,
 };
@@ -84,15 +86,12 @@ const postsSlice = createSlice({
       const formattedPost = state.posts.filter((post) => post.id !== id);
       state.posts = formattedPost;
     },
-    postShown(state, action) {
-      const {startPoint, endPoint} = action.payload;
-      let postsStart = startPoint;
-      let postsEnd = endPoint;
-      postsStart -= 12;
-      postsEnd -= 12;
-      const addedPosts = state.initialPosts.slice(postsStart, postsEnd);
+    postShown(state) {
+      state.postsStart -= 12;
+      state.postsEnd -= 12;
+      const addedPosts = state.initialPosts.slice(state.postsStart, state.postsEnd);
       addedPosts.reverse();
-      state.posts = state.posts.concat(addedPosts);
+      state.posts = addedPosts.concat(state.posts);
     },
   },
   extraReducers(builder) {

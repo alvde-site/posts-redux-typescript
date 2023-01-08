@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import stylesPostsList from "../../components/PostsList/PostsList.module.css";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link } from "react-router-dom";
@@ -47,13 +47,9 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
 export const PostsList = () => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
-  const [showingPoints, setShoingPoints] = useState({
-    startPoint: -24,
-    endPoint: -12,
-  });
+  const postsCount = useAppSelector(state => state.posts.postsStart);
   const handleShowPosts = () => {
-    const {startPoint, endPoint} = showingPoints;
-    dispatch(postShown({startPoint, endPoint}));
+    dispatch(postShown());
   };
 
   const postStatus = useAppSelector((state) => state.posts.status);
@@ -74,12 +70,9 @@ export const PostsList = () => {
     content = <Spinner text="Загрузка..." />;
   } else if (postStatus === "succeeded") {
     content = posts
-      .slice(-12)
+      .slice(postsCount)
       .map((post) => <PostExcerpt key={post.id} post={post} />);
     content.reverse();
-    let test = posts.slice(-24, -12);
-    test.reverse();
-    console.log(test);
   } else if (postStatus === "failed") {
     content = <div>{error}</div>;
   }
