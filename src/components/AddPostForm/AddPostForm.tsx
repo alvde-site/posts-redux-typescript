@@ -3,7 +3,7 @@ import stylesAddPostForm from "../../components/AddPostForm/AddPostForm.module.c
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { postAdded } from "../../services/reducers/postsSlice";
 
-export const AddPostForm = ({ userId }: { userId: null | string }) => {
+export const AddPostForm = ({ userId, handleScroll }: { userId: null | string; handleScroll: ()=> void }) => {
   const [description, setDescription] = useState("");
   const [nameRU, setNameRU] = useState("");
 
@@ -67,6 +67,7 @@ export const AddPostForm = ({ userId }: { userId: null | string }) => {
           type="submit"
           className={stylesAddPostForm.button}
           disabled={!canSave}
+          onClick={handleScroll}
         >
           Сохранить отзыв
         </button>

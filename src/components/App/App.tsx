@@ -20,6 +20,14 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
   const auth = useAppSelector(selectAllAuth);
+  const fieldRef = React.useRef<HTMLInputElement>(null);
+
+  const handleToPostScroll =()=> {
+    if(fieldRef) {
+      fieldRef.current!.scrollIntoView();
+    }
+    
+  }
   return (
     <Router>
       <div className={stylesApp.page}>
@@ -39,9 +47,9 @@ function App() {
                   {!auth.loggedIn ? (
                     <HaveToLoggedIn />
                   ) : (
-                    <AddPostForm userId={auth.userId} />
+                    <AddPostForm userId={auth.userId} handleScroll={handleToPostScroll}/>
                   )}
-                  <PostsList />
+                  <PostsList fieldRef={fieldRef}/>
                 </React.Fragment>
               }
             />

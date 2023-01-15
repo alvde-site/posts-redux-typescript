@@ -45,7 +45,7 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
   );
 };
 
-export const PostsList = () => {
+export const PostsList = ({fieldRef}:any) => {
   const dispatch = useAppDispatch();
   const posts = useAppSelector(selectAllPosts);
   const initialPosts = useAppSelector(selectAllInitialPosts);
@@ -81,7 +81,7 @@ export const PostsList = () => {
 
   return (
     <section className={stylesPostsList.posts}>
-      <h2 className={stylesPostsList.posts__title}>Отзывы</h2>
+      <h2 className={stylesPostsList.posts__title} ref={fieldRef}>Отзывы</h2>
       <div className={stylesPostsList.posts__container}>{content}</div>
       {posts.length !== initialPosts.length && (
         <button
