@@ -65,7 +65,7 @@ export const AddPostForm = ({ userId, handleScroll }: { userId: null | string; h
         />
         <button
           type="submit"
-          className={stylesAddPostForm.button}
+          className={canSave?stylesAddPostForm.button:stylesAddPostForm.disabled}
           disabled={!canSave}
           onClick={handleScroll}
         >

@@ -30,6 +30,8 @@ export const EditPostForm = () => {
     }
   };
 
+  const canSave = Boolean(description) && Boolean(nameRU);
+
   return (
     <section className={stylesEditPostForm.editpost}>
       <h2 className={stylesEditPostForm.editpost__title}>
@@ -70,7 +72,15 @@ export const EditPostForm = () => {
           onChange={onContentChanged}
           className={stylesEditPostForm.postform__description}
         />
-        <button type="submit" className={stylesEditPostForm.postform__button}>
+        <button
+          type="submit"
+          disabled={!canSave}
+          className={
+            canSave
+              ? stylesEditPostForm.postform__button
+              : stylesEditPostForm.postform__disabled
+          }
+        >
           Сохранить отзыв
         </button>
       </form>

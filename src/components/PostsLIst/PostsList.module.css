@@ -55,3 +55,9 @@
 .posts__button:hover {
   opacity: 0.5;
 }
+
+@media screen and (max-width: 575px) {
+  .posts__container {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 100%));
+  }
+}
