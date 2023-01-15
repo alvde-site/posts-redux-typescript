@@ -1,4 +1,4 @@
-import stylesNavbar from "../../components/Navbar/Navbar.module.css";
+import stylesNavbar from "./Navbar.module.css";
 import { signin } from "../../services/reducers/authSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 

@@ -17,6 +17,7 @@ import { HaveToLoggedIn } from "../HaveToLoggedIn/HaveToLoggedIn";
 import { useAppSelector } from "../../utils/hooks";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import Footer from "../Footer/Footer";
 
 function App() {
   const auth = useAppSelector(selectAllAuth);
@@ -58,7 +59,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
-        <footer className={stylesApp.footer}></footer>
+        <Footer/>
       </div>
     </Router>
   );
