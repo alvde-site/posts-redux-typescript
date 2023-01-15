@@ -48,6 +48,7 @@ export const AddPostForm = ({ userId }: { userId: null | string }) => {
           id="postTitle"
           name="postTitle"
           minLength={2}
+          maxLength={30}
           value={nameRU}
           onChange={onTitleChanged}
           className={stylesAddPostForm.item}

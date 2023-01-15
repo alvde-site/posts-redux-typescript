@@ -52,6 +52,7 @@ export const EditPostForm = () => {
           id="postTitle"
           name="postTitle"
           minLength={2}
+          maxLength={30}
           value={nameRU}
           onChange={onTitleChanged}
           className={stylesEditPostForm.postform__item}

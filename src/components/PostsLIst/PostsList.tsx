@@ -26,7 +26,7 @@ const PostExcerpt = ({ post }: { post: TPost }) => {
       {(auth.userId === "0" || auth.userId === post.user) && (
         <button onClick={handleDeletePost}>Удалить отзыв</button>
       )}
-      <h3>{post.nameRU}</h3>
+      <h3 className={stylesPostsList.posts__title}>{post.nameRU}</h3>
       <p className={stylesPostsList.posts__content}>{post.description}</p>
       <PostAuthor
         userId={post.user}
@@ -78,8 +78,6 @@ export const PostsList = () => {
   } else if (postStatus === "failed") {
     content = <div>{error}</div>;
   }
-
-  console.log(initialPosts.length, posts.length);
 
   return (
     <section className={stylesPostsList.posts}>
